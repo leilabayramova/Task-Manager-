@@ -1,5 +1,3 @@
-package arraylist;
-
 import java.util.Scanner;
 
 public class Main {
@@ -8,6 +6,7 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         TaskManager taskManager = new TaskManager();
+
         while (true) {
             System.out.println("\n====== TASK MANAGER ======");
             System.out.println("1. Add task");
@@ -22,75 +21,75 @@ public class Main {
 
             int choice = Integer.parseInt(sc.nextLine());
 
-            if (choice == 1) {
-                System.out.println("Enter title");
-                String title = sc.nextLine();
+            switch (choice) {
 
-                System.out.println("Enter description");
-                String description = sc.nextLine();
+                case 1:
+                    System.out.println("Enter title");
+                    String title = sc.nextLine();
 
-                taskManager.addTask(title, description);
-            }
+                    System.out.println("Enter description");
+                    String description = sc.nextLine();
 
-            else if (choice == 2) {
-                System.out.println("Enter id");
-                int id = Integer.parseInt(sc.nextLine());
+                    taskManager.addTask(title, description);
+                    break;
 
-                taskManager.removeTask(id);
-            }
+                case 2:
+                    System.out.println("Enter id");
+                    int idToRemove = Integer.parseInt(sc.nextLine());
 
-            else if (choice == 3) {
-                System.out.println("Enter id");
-                int id = Integer.parseInt(sc.nextLine());
+                    taskManager.removeTask(idToRemove);
+                    break;
 
-                System.out.println("Enter title");
-                String title = sc.nextLine();
+                case 3:
+                    System.out.println("Enter id");
+                    int idToUpdate = Integer.parseInt(sc.nextLine());
 
-                System.out.println("Enter description");
-                String description = sc.nextLine();
+                    System.out.println("Enter title");
+                    String newTitle = sc.nextLine();
 
-                taskManager.updateTask(id, title, description);
-            }
+                    System.out.println("Enter description");
+                    String newDescription = sc.nextLine();
 
-            else if (choice == 4) {
-                System.out.println("Enter id");
-                int id = Integer.parseInt(sc.nextLine());
+                    taskManager.updateTask(idToUpdate, newTitle, newDescription);
+                    break;
 
-                taskManager.markAsCompleted(id);
-            }
+                case 4:
+                    System.out.println("Enter id");
+                    int idToComplete = Integer.parseInt(sc.nextLine());
 
-            else if (choice == 5) {
-                taskManager.showAllTasks();
-            }
+                    taskManager.markAsCompleted(idToComplete);
+                    break;
 
-            else if (choice == 6) {
-                System.out.print("Enter keyword: ");
-                String keyword = sc.nextLine();
+                case 5:
+                    taskManager.showAllTasks();
+                    break;
 
-                taskManager.search(keyword);
-            }
+                case 6:
+                    System.out.print("Enter keyword: ");
+                    String keyword = sc.nextLine();
 
-            else if (choice == 7) {
-                System.out.print("Are you sure? (yes/no): ");
-                String confirm = sc.nextLine();
+                    taskManager.search(keyword);
+                    break;
 
-                if (confirm.equalsIgnoreCase("yes")) {
-                    taskManager.clearAll();
-                } else {
-                    System.out.println("Operation cancelled.");
-                }
-            }
+                case 7:
+                    System.out.print("Are you sure? (yes/no): ");
+                    String confirm = sc.nextLine();
 
-            else if (choice == 8) {
-                System.out.println("Stop the program.");
-                break;
-            }
+                    if (confirm.equalsIgnoreCase("yes")) {
+                        taskManager.clearAll();
+                    } else {
+                        System.out.println("Operation cancelled.");
+                    }
+                    break;
 
-            else {
-                System.out.println("Invalid choice!");
+                case 8:
+                    System.out.println("Stop the program.");
+                    sc.close();
+                    return; // proqramı tam dayandırır
+
+                default:
+                    System.out.println("Invalid choice!");
             }
         }
-
-        sc.close();
     }
 }
