@@ -1,0 +1,95 @@
+Class: Task
+This class represents one task.
+It must contain:
+id (int)
+title (String)
+description (String)
+completed (boolean)
+Methods:
+Constructor
+Getters + setters
+markAsCompleted()
+toString() → should print task information nicely
+
+
+Class: TaskManager
+This class manages all tasks.
+It must contain:
+ArrayList<Task> tasks
+int nextId = 1 (to auto-increment task IDs)
+
+addTask(title, description) Create new Task and add to list
+removeTask(id) Remove task with that ID
+updateTask(id, newTitle, newDescription) Update fields
+markCompleted(id) Mark task as completed
+search(keyword) Show tasks containing keyword
+getAllTasks() Print all tasks
+clearAll() Remove all tasks
+findById(id) Return the matching Task object
+
+
+====== TASK MANAGER ======
+1. Add task
+2. Remove task
+3. Update task
+4. Mark task as completed
+5. Show all tasks
+6. Search tasks
+7. Clear all tasks
+8. Exit
+Choose option:
+
+
+1 → Add
+
+Ask:
+
+Enter title:
+Enter description:
+
+2 → Remove
+
+Ask:
+
+Enter task ID:
+
+3 → Update
+
+Ask:
+
+Enter ID:
+Enter new title:
+Enter new description:
+
+4 → Mark Completed
+
+Ask:
+
+Enter ID:
+
+5 → Show All
+
+Print all tasks.
+If none → print "No tasks available."
+
+
+6 → Search
+
+Ask:
+
+Enter keyword:
+
+
+7 → Clear All
+
+Ask:
+
+Are you sure? (yes/no)
+
+
+8 → Exit
+
+Stop the program.
+
+
+!!!!PR must be attached
