@@ -1,0 +1,37 @@
+====== STUDENT MANAGER ======
+1. Add student
+2. Remove student
+3. Update student
+4. Deactivate student
+5. Show all students
+6. Search students
+7. Clear all
+8. Exit
+
+
+Class: Student
+Fields:
+id (int)
+name (String)
+group (String)
+averageScore (double)
+active (boolean)
+Methods:
+Constructor
+Getters / setters
+deactivate()
+toString()
+
+Class: StudentManager
+ArrayList<Student> students
+nextId (auto increment)
+
+Functions:
+addStudent(name, group, score)
+removeStudent(id)
+updateStudent(id, newName, newGroup, newScore)
+deactivateStudent(id)
+search(keyword)
+showAll()
+clearAll()
+findById(id)

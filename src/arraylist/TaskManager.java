@@ -11,7 +11,7 @@ public class TaskManager {
         tasks.add(task);
     }
 
-    public void removeTask(Integer id) {
+    public  void removeTask(Integer id) {
         var task = getTaskById(id);
         if (task == null) {
             System.out.println("Task " + id + " not found");
