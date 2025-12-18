@@ -23,77 +23,78 @@ public class Main2 {
 
             int choice = Integer.parseInt(sc.nextLine());
 
-            if (choice == 1) {
+            switch (choice) {
 
-                System.out.print("Enter name: ");
-                String name = sc.nextLine();
+                case 1:
+                    System.out.print("Enter name: ");
+                    String name = sc.nextLine();
 
-                System.out.print("Enter group: ");
-                String group = sc.nextLine();
+                    System.out.print("Enter group: ");
+                    String group = sc.nextLine();
 
-                System.out.print("Enter score: ");
-                double score = Double.parseDouble(sc.nextLine());
+                    System.out.print("Enter score: ");
+                    double score = Double.parseDouble(sc.nextLine());
 
-                studentManager.addStudent(name, group, score);
+                    studentManager.addStudent(name, group, score);
+                    break;
 
-            } else if (choice == 2) {
+                case 2:
+                    System.out.print("Enter id: ");
+                    int idToRemove = Integer.parseInt(sc.nextLine());
 
-                System.out.print("Enter id: ");
-                int idToRemove = Integer.parseInt(sc.nextLine());
+                    studentManager.removeStudent(idToRemove);
+                    break;
 
-                studentManager.removeStudent(idToRemove);
+                case 3:
+                    System.out.print("Enter id: ");
+                    int idToUpdate = Integer.parseInt(sc.nextLine());
 
-            } else if (choice == 3) {
+                    System.out.print("Enter new name: ");
+                    String newName = sc.nextLine();
 
-                System.out.print("Enter id: ");
-                int idToUpdate = Integer.parseInt(sc.nextLine());
+                    System.out.print("Enter new group: ");
+                    String newGroup = sc.nextLine();
 
-                System.out.print("Enter new name: ");
-                String newName = sc.nextLine();
+                    System.out.print("Enter new score: ");
+                    double newScore = Double.parseDouble(sc.nextLine());
 
-                System.out.print("Enter new group: ");
-                String newGroup = sc.nextLine();
+                    studentManager.updateStudent(
+                            idToUpdate,
+                            newName,
+                            newGroup,
+                            newScore
+                    );
+                    break;
 
-                System.out.print("Enter new score: ");
-                double newScore = Double.parseDouble(sc.nextLine());
+                case 4:
+                    System.out.print("Enter id: ");
+                    int idToDeactivate = Integer.parseInt(sc.nextLine());
 
-                studentManager.updateStudent(
-                        idToUpdate,
-                        newName,
-                        newGroup,
-                        newScore
-                );
+                    studentManager.deactivateStudent(idToDeactivate);
+                    break;
 
-            } else if (choice == 4) {
+                case 5:
+                    studentManager.showAll();
+                    break;
 
-                System.out.print("Enter id: ");
-                int idToDeactivate = Integer.parseInt(sc.nextLine());
+                case 6:
+                    System.out.print("Enter keyword: ");
+                    String keyword = sc.nextLine();
 
-                studentManager.deactivateStudent(idToDeactivate);
+                    studentManager.search(keyword);
+                    break;
 
-            } else if (choice == 5) {
+                case 7:
+                    studentManager.clearAll();
+                    break;
 
-                studentManager.showAll();
+                case 8:
+                    System.out.println("Program exited.");
+                    sc.close();
+                    return;
 
-            } else if (choice == 6) {
-
-                System.out.print("Enter keyword: ");
-                String keyword = sc.nextLine();
-
-                studentManager.search(keyword);
-
-            } else if (choice == 7) {
-
-                studentManager.clearAll();
-
-            } else if (choice == 8) {
-
-                System.out.println("Program exited.");
-                sc.close();
-                return;
-
-            } else {
-                System.out.println("Invalid choice!");
+                default:
+                    System.out.println("Invalid choice!");
             }
         }
     }
